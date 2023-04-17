@@ -50,11 +50,11 @@ async function handleIncomingMessage(message: Message) {
 		//o quality é alto, 5
 
 		if (wordExist) {
-			console.log(`\na palavra ${word} ja estava no banco, logo sua qualidade foi 4\n`);
-			return 5;
-		} else {
-			console.log(`a palavra ${word} não estava no banco, logo sua qualidade foi 2`);
+			console.log(`\na palavra ${word} ja estava no banco, nao lembrei, qualidade foi 2\n`);
 			return 2;
+		} else {
+			console.log(`a palavra ${word} não estava no banco, lembrei, sua qualidade foi 5`);
+			return 5;
 		}
 	}
 
@@ -98,9 +98,9 @@ async function handleIncomingMessage(message: Message) {
 		//const noDoubtWordShowedOnResponse =
 
 		const noDoubtWordShowedOnResponse = listAnkiWords?.filter((palavra) => !meaningWordsArray?.includes(palavra));
-		message.reply(`noDoubtWordShowedOnResponse ${noDoubtWordShowedOnResponse}`);
+		//message.reply(`noDoubtWordShowedOnResponse ${noDoubtWordShowedOnResponse}`);
 		const noDoubtWordsRemembered = noDoubtWordShowedOnResponse?.filter((w) => messageString?.includes(w));
-		message.reply(`noDoubtWordsRemembered ${noDoubtWordsRemembered}`);
+		//message.reply(`noDoubtWordsRemembered ${noDoubtWordsRemembered}`);
 
 		//post dos quality das palavras que apareceram na resposta e o usuario lembrou(nao colocou na lista de /meaning)
 		noDoubtWordsRemembered?.forEach(async (word) => {
@@ -111,7 +111,7 @@ async function handleIncomingMessage(message: Message) {
 				console.log(response.data);
 				//message.reply(`The word *${e}*.`);
 				//await handleMessageGPT(message, `Show me the meaning of word ${word} in max 20 words.`);
-				message.reply(`You remembered this words:${noDoubtWordsRemembered}`);
+				//message.reply(`You remembered this words:${noDoubtWordsRemembered}`);
 			} catch (err) {
 				console.log(err.message);
 				//message.reply(`not inserted, contact adm`);

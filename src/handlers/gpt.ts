@@ -56,7 +56,7 @@ const handleMessageGPT = async (message: Message, prompt: string) => {
 			try {
 				await moderateIncomingPrompt(prompt);
 			} catch (error: any) {
-				message.reply(error.message);
+				//message.reply(error.message);
 				return;
 			}
 		}
@@ -195,7 +195,7 @@ const handleMessageGPT = async (message: Message, prompt: string) => {
 		//message.reply(audio);
 	} catch (error: any) {
 		console.error("An error occured", error);
-		message.reply("An error occured, please contact the administrator. (" + error.message + ")");
+		//message.reply("An error occured, please contact the administrator. (" + error.message + ")");
 	}
 };
 
